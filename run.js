@@ -1,4 +1,4 @@
 'use strict'
 
 require('babel-register')
-require('./lib/index')
+require('./src/index')

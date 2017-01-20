@@ -3,7 +3,7 @@
   "middleware": {
     "router": {
       "module": {
-        "arguments": [{ "directory": "path:./lib/controllers" }]
+        "arguments": [{ "directory": "path:./src/controllers" }]
       }
     },
 
