@@ -6,9 +6,9 @@ const modelSchema = new mongoose.Schema({
 })
 
 modelSchema.statics.foo = async function foo() {
-  return Promise.resolve()
-    .delay(100)
-    .then(() => logger.info('foo', { bar: 'baz'}))
+  await Promise.resolve().delay(100)
+
+  logger.info('foo', { bar: 'baz'})
 }
 
 export default mongoose.model('Model', modelSchema)
