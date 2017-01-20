@@ -2,8 +2,17 @@
 
   "middleware": {
     "router": {
+      "priority": 120,
       "module": {
         "arguments": [{ "directory": "path:./src/controllers" }]
+      }
+    },
+
+    "error": {
+      "priority": 121,
+      "module": {
+        "name": "path:./src/middlewares/error",
+        "method": "default"
       }
     },
 
