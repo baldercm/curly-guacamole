@@ -1,4 +1,5 @@
-import Model from '../model/model'
+import api        from '../lib/api'
+import Model      from '../model/model'
 import {ApiError} from '../lib/errors'
 
 export default function(router) {
@@ -9,19 +10,12 @@ export default function(router) {
 async function hello(req, res) {
   await Model.foo()
 
-  let model = await Model.findOne().exec()
+  let model = await Model.findOne()
 
   res.status(200).json(model)
+  return 'Booking created'
 }
 
 async function error() {
   throw new ApiError()
-}
-
-function api(handler) {
-  return function(req, res, next) {
-    Promise.resolve(handler(req, res))
-      .then(() => next())
-      .catch((err) => next(err))
-  }
 }
