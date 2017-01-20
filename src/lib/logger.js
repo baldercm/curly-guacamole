@@ -88,7 +88,7 @@ function apiLogger(options) {
         },
       }
 
-      if (res.app.error) {
+      if (_.get(res, 'app.error')) {
         let err = res.app.error
 
         message.error = {
