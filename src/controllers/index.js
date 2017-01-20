@@ -20,6 +20,7 @@ async function error() {
 function api(handler) {
   return function(req, res, next) {
     Promise.resolve(handler(req, res))
+      .then(() => next())
       .catch((err) => next(err))
   }
 }
