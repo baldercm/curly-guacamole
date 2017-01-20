@@ -1,0 +1,28 @@
+{
+  "folders":
+  [
+    {
+      "file_exclude_patterns":
+      [
+        "*.log*"
+      ],
+      "folder_exclude_patterns":
+      [
+        ".idea",
+        "coverage",
+        "node_modules",
+        "report"
+      ],
+      "path": "."
+    }
+  ],
+  "SublimeLinter":
+  {
+    "linters":
+    {
+      "jshint": {
+        "@disable": true
+      }
+    }
+  }
+}

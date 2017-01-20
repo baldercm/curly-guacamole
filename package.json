@@ -1,0 +1,61 @@
+{
+  "name": "@baldercm/curly-guacamole",
+  "version": "0.1.0",
+  "description": "node.js playground using Babel",
+  "main": "index.js",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "node run.js",
+    "test": "make test",
+    "test-ci": "make test-ci",
+    "coverage": "make coverage",
+    "build": "babel lib -d dist",
+    "serve": "node dist/index.js"
+  },
+  "dependencies": {
+    "babel-runtime": "6.20.0",
+    "bluebird": "3.4.6",
+    "coffee-script": "1.11.1",
+    "connect-roles": "3.1.2",
+    "cors": "2.8.1",
+    "express": "4.14.0",
+    "kraken-js": "2.1.0",
+    "lodash": "4.17.2",
+    "moment": "2.17.0",
+    "moment-timezone": "0.5.10",
+    "mongoose": "4.7.1",
+    "numeral": "1.5.6",
+    "on-finished": "2.3.0",
+    "pine": "1.1.1",
+    "request": "2.79.0",
+    "request-promise": "4.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "6.18.0",
+    "babel-eslint": "7.1.1",
+    "babel-plugin-transform-runtime": "6.15.0",
+    "babel-preset-latest": "6.16.0",
+    "babel-register": "6.18.0",
+    "chai": "3.5.0",
+    "chai-as-promised": "6.0.0",
+    "coveralls": "2.11.15",
+    "eslint": "3.13.1",
+    "eslint-config-node-style-guide": "3.0.0",
+    "istanbul": "0.4.5",
+    "mocha": "3.2.0",
+    "proxyquire": "1.7.10",
+    "sinon": "1.17.6",
+    "sinon-chai": "2.8.0",
+    "supertest": "2.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/baldercm/curly-guacamole.git"
+  },
+  "author": {
+    "name": "Bálder Carraté",
+    "email": "baldercm@gmail.com"
+  },
+  "contributors": []
+}
