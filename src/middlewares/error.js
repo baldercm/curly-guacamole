@@ -5,7 +5,7 @@ import {ApiError} from '../lib/errors'
 export default function() {
   logger.info('Loading error middleware')
 
-  return function(err, req, res, next) {
+  return (err, req, res, next) => {
     _.set(res, 'app.error', err)
 
     if (!res.headersSent) {
