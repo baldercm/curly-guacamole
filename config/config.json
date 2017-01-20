@@ -9,10 +9,11 @@
       },
       "file": {
         "level"   : "info",
+        "json": true,
         "filename": "curly-guacamole.log"
       }
     },
-    "api": {
+    "access": {
       "console": {
         "level": "info",
         "json": true,
@@ -20,7 +21,8 @@
       },
       "file": {
         "level"   : "info",
-        "filename": "curly-guacamole-api.log"
+        "json": true,
+        "filename": "curly-guacamole-access.log"
       }
     }
   },
@@ -29,7 +31,8 @@
     "logger": {
       "priority": 50,
       "module": {
-        "arguments": ["combined"]
+        "name": "path:./src/lib/logger",
+        "method": "accessLogger"
       }
     },
 

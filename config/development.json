@@ -4,6 +4,17 @@
     "main": {
       "console": {
         "json": false
+      },
+      "file": {
+        "json": false
+      }
+    },
+    "access": {
+      "console": {
+        "json": false
+      },
+      "file": {
+        "json": false
       }
     }
   },
