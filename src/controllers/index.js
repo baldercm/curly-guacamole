@@ -7,7 +7,8 @@ export default function(router) {
 }
 
 async function hello(req, res) {
-  Model.foo()
+  await Model.foo()
+
   let model = await Model.findOne().exec()
 
   res.status(200).json(model)
