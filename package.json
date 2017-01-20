@@ -6,12 +6,12 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "start": "nodemon src/index.js --exec babel-node",
+    "start": "make start",
     "test": "make test",
-    "test-ci": "make test-ci",
     "coverage": "make coverage",
-    "build": "babel src -d dist && cp -R src/config dist",
-    "lint": "eslint src",
+    "test-ci": "make test-ci",
+    "lint": "make eslint",
+    "build": "make build",
     "serve": "node dist/index.js"
   },
   "dependencies": {
