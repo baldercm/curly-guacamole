@@ -1,6 +1,38 @@
 {
 
+  "logger": {
+    "main": {
+      "console": {
+        "level": "info",
+        "json": true,
+        "stringify": true
+      },
+      "file": {
+        "level"   : "info",
+        "filename": "curly-guacamole.log"
+      }
+    },
+    "api": {
+      "console": {
+        "level": "info",
+        "json": true,
+        "stringify": true
+      },
+      "file": {
+        "level"   : "info",
+        "filename": "curly-guacamole-api.log"
+      }
+    }
+  },
+
   "middleware": {
+    "logger": {
+      "priority": 50,
+      "module": {
+        "arguments": ["combined"]
+      }
+    },
+
     "router": {
       "priority": 120,
       "module": {

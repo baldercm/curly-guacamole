@@ -7,6 +7,7 @@ export default function(router) {
 }
 
 async function hello(req, res) {
+  Model.foo()
   let model = await Model.findOne().exec()
 
   res.status(200).json(model)
@@ -19,7 +20,6 @@ async function error() {
 function api(handler) {
   return function(req, res, next) {
     Promise.resolve(handler(req, res))
-      .then(() => next())
       .catch((err) => next(err))
   }
 }

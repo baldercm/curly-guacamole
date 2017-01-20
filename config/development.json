@@ -1,11 +1,28 @@
 {
 
+  "logger": {
+    "main": {
+      "console": {
+        "json": false
+      }
+    }
+  },
+
   "mongo": {
     "uri": "mongodb://localhost:27017/curly-guacamole",
     "options": {
       "user"  : "",
       "pass"  : "",
       "quiet" : false
+    }
+  },
+
+  "middleware": {
+    "logger": {
+      "priority": 50,
+      "module": {
+        "arguments": ["dev"]
+      }
     }
   }
 
