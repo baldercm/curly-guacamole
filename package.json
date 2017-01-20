@@ -6,11 +6,12 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "start": "nodemon run.js --delay 1",
+    "start": "nodemon run.js",
     "test": "make test",
     "test-ci": "make test-ci",
     "coverage": "make coverage",
     "build": "babel src -d dist",
+    "lint": "eslint src",
     "serve": "node dist/index.js"
   },
   "dependencies": {
