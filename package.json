@@ -10,7 +10,7 @@
     "test": "make test",
     "test-ci": "make test-ci",
     "coverage": "make coverage",
-    "build": "babel src -d dist",
+    "build": "babel src -d dist && cp -R src/config dist",
     "lint": "eslint src",
     "serve": "node dist/index.js"
   },
@@ -38,6 +38,7 @@
     "babel-eslint": "7.1.1",
     "babel-plugin-transform-runtime": "6.22.0",
     "babel-preset-env": "1.1.8",
+    "babel-preset-latest": "^6.22.0",
     "chai": "3.5.0",
     "chai-as-promised": "6.0.0",
     "coveralls": "2.11.15",

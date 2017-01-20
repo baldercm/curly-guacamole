@@ -1,7 +1,10 @@
 import * as _     from 'lodash'
+import logger     from 'winston'
 import {ApiError} from '../lib/errors'
 
 export default function() {
+  logger.info('Loading error middleware')
+
   return function(err, req, res, next) {
     _.set(res, 'app.error', err)
 

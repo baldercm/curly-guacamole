@@ -1,6 +1,6 @@
 import Bluebird from 'bluebird'
 import mongoose from 'mongoose'
-import logger from 'winston'
+import logger   from 'winston'
 
 mongoose.Promise = Bluebird
 
@@ -9,9 +9,8 @@ function start(mongoOptions) {
   let mongoOpts = mongoOptions.options || {}
 
   mongoose.connection.once('open', () => {
-    if (!mongoOpts.quiet) {
-      logger.info('Mongoose connected to ' + mongoUri)
-    }
+    logger.info('Mongoose connected to ' + mongoUri)
+    logger.info('* Mongo configuration: OK')
   })
   mongoose.connection.on('error', (err) => {
     logger.error('Mongoose connection error: ' + err)

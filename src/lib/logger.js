@@ -23,10 +23,12 @@ function start(opts) {
       }),
     ]
   })
+
+  winston.info('* Logger configuration: OK')
 }
 
 function accessLogger(format, args) {
-  let logger = new (winston.Logger)({
+  const logger = new (winston.Logger)({
     transports: [
       new (winston.transports.Console)({
         level: options.access.console.level,
@@ -42,8 +44,8 @@ function accessLogger(format, args) {
     ]
   })
 
-  let accessLogStream = {
-    write: function(message){
+  const accessLogStream = {
+    write(message) {
       message = _.replace(message, /(?:\r\n|\r|\n)/g, '')
       logger.info(message)
     }
@@ -70,41 +72,40 @@ function apiLogger(options) {
   })
 
   return (req, res, next) => {
-    onFinished(res, writeApiLog)
+    onFinished(res, () => writeApiLog(req, res))
     next()
+  }
 
+  function writeApiLog(req, res) {
+    let message = {
+      req: {
+        method: req.method,
+        url: req.originalUrl,
+        body: req.body,
+        headers: req.headers,
+        ip: req.ip,
+      },
+      res: {
+        status: res.statusCode,
+      },
+    }
 
-    function writeApiLog() {
-      let message = {
-        req: {
-          method: req.method,
-          url: req.originalUrl,
-          body: req.body,
-          headers: req.headers,
-          ip: req.ip,
-        },
-        res: {
-          status: res.statusCode,
-        },
+    if (!_.get(res, 'app.error')) {
+      apiLogger.info(res.app.outcome, message)
+    } else {
+      let err = res.app.error
+
+      message.error = {
+        type:     err.name,
+        message:  err.message,
+        stack:    err.stack,
+        causes:   err.causes ? _.map(err.causes, 'stack') : [_.get(err, 'cause.stack')],
       }
 
-      if (_.get(res, 'app.error')) {
-        let err = res.app.error
-
-        message.error = {
-          type:     err.name,
-          message:  err.message,
-          stack:    err.stack,
-          causes:   err.causes ? _.map(err.causes, cause => cause.stack) : [_.get(err, 'cause.stack')],
-        }
-
-        if (res.statusCode >= 500) {
-          apiLogger.error(`Internal Server Error: ${res.app.error.message}`, message)
-        } else if (res.statusCode >= 400) {
-          apiLogger.error(res.app.error.message, message)
-        }
-      } else {
-        apiLogger.info(res.app.outcome, message)
+      if (res.statusCode >= 500) {
+        apiLogger.error(`Internal Server Error: ${res.app.error.message}`, message)
+      } else if (res.statusCode >= 400) {
+        apiLogger.error(res.app.error.message, message)
       }
     }
   }

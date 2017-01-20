@@ -1,8 +1,8 @@
-import path from 'path'
-import * as logger from './logger'
-import * as mongo from './mongo'
+import path         from 'path'
+import * as logger  from './logger'
+import * as mongo   from './mongo'
 
-const BASEDIR = path.resolve(__dirname, '..', '..')
+const BASEDIR = path.resolve(__dirname, '..')
 
 function start() {
   return {

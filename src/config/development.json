@@ -3,6 +3,7 @@
   "logger": {
     "main": {
       "console": {
+        "level": "debug",
         "json": false
       },
       "file": {

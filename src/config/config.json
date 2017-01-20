@@ -40,18 +40,10 @@
   },
 
   "middleware": {
-    "logger": {
-      "priority": 50,
-      "module": {
-        "name": "path:./src/lib/logger",
-        "method": "accessLogger"
-      }
-    },
-
     "apiLogger": {
-      "priority": 50,
+      "priority": 49,
       "module": {
-        "name": "path:./src/lib/logger",
+        "name": "path:./lib/logger",
         "method": "apiLogger",
         "arguments": [
           "config:logger"
@@ -59,17 +51,25 @@
       }
     },
 
+    "logger": {
+      "priority": 50,
+      "module": {
+        "name": "path:./lib/logger",
+        "method": "accessLogger"
+      }
+    },
+
     "router": {
       "priority": 120,
       "module": {
-        "arguments": [{ "directory": "path:./src/controllers" }]
+        "arguments": [{ "directory": "path:./controllers" }]
       }
     },
 
     "error": {
       "priority": 121,
       "module": {
-        "name": "path:./src/middlewares/error",
+        "name": "path:./middlewares/error",
         "method": "default"
       }
     },
