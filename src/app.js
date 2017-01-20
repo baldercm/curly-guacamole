@@ -3,7 +3,7 @@
 import express from 'express'
 import kraken from 'kraken-js'
 import http from 'http'
-import * as config from './config'
+import * as config from './lib/config'
 
 const app = express()
 

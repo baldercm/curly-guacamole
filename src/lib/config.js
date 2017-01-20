@@ -3,7 +3,7 @@
 import path from 'path'
 import * as mongo from './mongo'
 
-const BASEDIR = path.resolve(__dirname, '..')
+const BASEDIR = path.resolve(__dirname, '..', '..')
 
 function start() {
   return {
