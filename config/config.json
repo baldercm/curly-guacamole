@@ -1,0 +1,38 @@
+{
+
+  "middleware": {
+    "router": {
+      "module": {
+        "arguments": [{ "directory": "path:./lib/controllers" }]
+      }
+    },
+
+    "favicon": {
+      "enabled": false
+    },
+
+    "static": {
+      "enabled": false
+    },
+
+    "urlencoded": {
+      "enabled": false
+    },
+
+    "multipart": {
+      "enabled": false
+    },
+
+    "cookieParser": {
+      "enabled": false
+    },
+
+    "session": {
+      "enabled": false
+    },
+
+    "appsec": {
+        "enabled": false
+    }
+  }
+}
