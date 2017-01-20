@@ -5,7 +5,7 @@ import * as config  from './lib/config'
 
 const app = express()
 
-app.use(kraken(config.start(app)))
+app.use(kraken(config.start()))
 app.on('start', () => {
   console.log('Application ready to serve requests')
 })
