@@ -1,4 +1,5 @@
 coverage/
+lib/
 node_modules/
 report/
 scripts/
@@ -9,10 +10,10 @@ test/
 Dockerfile
 .dockerignore
 .editorconfig
+.eslintignore
+.eslintrc.yml
 .gitignore
 .istanbul.yml
-.jshintignore
-.jshintrc
 
 *.log
 *.log.*
