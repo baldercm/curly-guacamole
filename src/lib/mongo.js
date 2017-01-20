@@ -1,5 +1,3 @@
-'use strict'
-
 import Bluebird from 'bluebird'
 import mongoose from 'mongoose'
 

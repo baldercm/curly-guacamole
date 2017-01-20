@@ -1,5 +1,3 @@
-'use strict'
-
 async function run() {
   try {
     let result = await task()

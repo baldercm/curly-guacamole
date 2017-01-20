@@ -1,5 +1,3 @@
-'use strict'
-
 import express from 'express'
 import kraken from 'kraken-js'
 import http from 'http'

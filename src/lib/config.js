@@ -1,5 +1,3 @@
-'use strict'
-
 import path from 'path'
 import * as mongo from './mongo'
 
