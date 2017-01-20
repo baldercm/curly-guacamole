@@ -16,6 +16,14 @@
       "file": {
         "json": false
       }
+    },
+    "api": {
+      "console": {
+        "json": false
+      },
+      "file": {
+        "json": false
+      }
     }
   },
 
