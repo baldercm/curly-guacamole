@@ -8,7 +8,7 @@
         "stringify": true
       },
       "file": {
-        "level"   : "info",
+        "level": "info",
         "json": true,
         "filename": "curly-guacamole.log"
       }
