@@ -60,6 +60,9 @@ precoverage:
 eslint:
 	$(NODE_MODULES)/eslint src
 
+docker-build: build
+	docker build --tag $(DOCKER_IMAGE) .
+
 release-docker-build:
 	docker build --tag $(DOCKER_IMAGE) .
 	docker tag $(DOCKER_IMAGE) $(DOCKER_IMAGE_STABLE)
