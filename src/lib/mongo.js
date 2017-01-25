@@ -5,6 +5,9 @@ import logger   from 'winston'
 mongoose.Promise = Bluebird
 
 function start(mongoOptions) {
+  if (mongoOptions.debug) {
+    mongoose.set('debug', true)
+  }
   let mongoUri  = mongoOptions.uri
   let mongoOpts = mongoOptions.options || {}
 

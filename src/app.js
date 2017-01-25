@@ -1,31 +1,33 @@
 import express      from 'express'
 import kraken       from 'kraken-js'
-import http         from 'http'
 import * as config  from './lib/config'
+import logger       from 'winston'
 
 const app = express()
 
 app.use(kraken(config.start()))
 app.on('start', () => {
-  console.log('Application ready to serve requests')
+  logger.info('Application ready to serve requests')
 })
 
-const server = http.createServer(app)
-server.listen(process.env.PORT || 8080)
+const server = app.listen(process.env.PORT || 8080)
 server.on('listening', () => {
-  console.log('Server listening on http://localhost:%d', server.address().port)
+  logger.info('Server listening on http://localhost:%d', server.address().port)
 })
-
+server.on('close', () => {
+  logger.info('Server closed')
+})
 
 process.on('SIGTERM', shutdown) // docker stop
 process.on('SIGINT' , shutdown) // ctrl-C
 process.on('SIGUSR2', shutdown) // nodemon restart
 
 async function shutdown() {
-  console.log('\nShutting down...')
+  logger.info('\nShutting down...')
+  await Promise.fromCallback((done) => server.close(done))
   await config.stop()
 
-  console.log('Will exit now!')
+  logger.info('Will exit now!')
   process.exit(0)
 }
 
