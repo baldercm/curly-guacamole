@@ -23,7 +23,7 @@ build: clean
 
 test: pretest test-commands end-cleanup
 
-test-commands:
+test-commands: eslint
 	NODE_ENV=test $(NODE_MODULES)/mocha --opts ./src/test/mocha.opts ./src/test
 
 test-docs: pretest test-docs-commands end-cleanup

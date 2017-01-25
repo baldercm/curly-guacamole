@@ -1,7 +1,7 @@
 import express      from 'express'
 import kraken       from 'kraken-js'
-import * as config  from './lib/config'
 import logger       from 'winston'
+import * as config  from './lib/config'
 
 const app = express()
 
@@ -24,7 +24,7 @@ process.on('SIGINT' , shutdown) // ctrl-C
 process.on('SIGUSR2', shutdown) // nodemon restart
 
 async function shutdown() {
-  logger.info('\nShutting down...')
+  logger.info('Shutting down...')
   await Promise.fromCallback((done) => server.close(done))
   await config.stop()
 

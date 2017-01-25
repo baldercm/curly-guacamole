@@ -1,7 +1,9 @@
+--async-only
 --recursive
 --require babel-polyfill
 --compilers js:babel-register
 --ui bdd
 --reporter spec
 --check-leaks
+--globals APP
 --growl
