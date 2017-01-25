@@ -21,13 +21,23 @@ describe('Example e2e', () => {
     })
   })
 
-  describe('GET /error', () => {
+  describe('GET /error/400', () => {
     it('should get an error', async() => {
       let res = await supertest(global.APP)
-        .get('/error')
+        .get('/error/400')
         .expect(400)
 
       expect(res.body).to.have.property('error', 'ApiError')
+    })
+  })
+
+  describe('GET /error/500', () => {
+    it('should get an error', async() => {
+      let res = await supertest(global.APP)
+        .get('/error/500')
+        .expect(500)
+
+      expect(res.body).to.have.property('error', 'InternalServerError')
     })
   })
 })

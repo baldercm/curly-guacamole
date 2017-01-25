@@ -4,7 +4,8 @@ import {ApiError} from '../lib/errors'
 
 export default function(router) {
   router.get('/', api(hello))
-  router.get('/error', api(error))
+  router.get('/error/400', api(error400))
+  router.get('/error/500', api(error500))
 }
 
 async function hello(req, res) {
@@ -16,6 +17,10 @@ async function hello(req, res) {
   return 'Booking created'
 }
 
-async function error() {
+async function error400() {
   throw new ApiError()
+}
+
+async function error500() {
+  throw new Error()
 }
