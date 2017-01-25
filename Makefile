@@ -18,23 +18,23 @@ clean:
 	rm -Rf dist
 
 build: clean
-	$(NODE_MODULES)/babel src -d dist
+	$(NODE_MODULES)/babel src --ignore test --out-dir dist
 	cp -R src/config dist
 
 test: pretest test-commands end-cleanup
 
 test-commands:
-	NODE_ENV=test $(NODE_MODULES)/mocha
+	NODE_ENV=test $(NODE_MODULES)/mocha --opts ./src/test/mocha.opts ./src/test
 
 test-docs: pretest test-docs-commands end-cleanup
 
 test-docs-commands:
 	rm -f $(REPORT_DOCS)
 	mkdir -p docs
-	NODE_ENV=test $(NODE_MODULES)/mocha --reporter markdown >> $(REPORT_DOCS)
+	NODE_ENV=test $(NODE_MODULES)/mocha --opts ./src/test/mocha.opts ./src/test --reporter markdown >> $(REPORT_DOCS)
 
 coverage: pretest precoverage
-	NODE_ENV=test $(NODE_MODULES)/istanbul cover $(NODE_MODULES)/_mocha
+	NODE_ENV=test $(NODE_MODULES)/nyc $(NODE_MODULES)/mocha --opts ./src/test/mocha.opts ./src/test
 
 pretest: eslint docker-test-start
 

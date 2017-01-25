@@ -1,0 +1,51 @@
+{
+
+  "logger": {
+    "main": {
+      "console": {
+        "level": "silent",
+        "json": false
+      },
+      "file": {
+        "json": false
+      }
+    },
+    "access": {
+      "console": {
+        "level": "silent",
+        "json": false
+      },
+      "file": {
+        "json": false
+      }
+    },
+    "api": {
+      "console": {
+        "level": "silent",
+        "json": false
+      },
+      "file": {
+        "json": false
+      }
+    }
+  },
+
+  "mongo": {
+    "uri": "mongodb://localhost:27001/curly-guacamole",
+    "options": {
+      "user": "",
+      "pass": ""
+    },
+    "debug": false
+  },
+
+  "middleware": {
+    "logger": {
+      "priority": 50,
+      "module": {
+        "arguments": ["dev"]
+      }
+    }
+  }
+
+}

@@ -3,7 +3,6 @@ src/
 node_modules/
 report/
 scripts/
-test/
 .DS_Store/
 .git/
 

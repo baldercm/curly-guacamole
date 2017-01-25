@@ -9,5 +9,16 @@
   "plugins": [
     "transform-promise-to-bluebird",
     "transform-runtime"
-  ]
+  ],
+  "env": {
+    "test": {
+      "plugins": [
+        ["istanbul", {
+          "exclude": [
+            "src/test"
+          ]
+        }]
+      ]
+    },
+  }
 }
