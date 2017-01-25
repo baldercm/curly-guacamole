@@ -3,6 +3,7 @@
   "ignore": [
     ".git",
     "coverage",
+    "dist",
     "node_modules",
     "nodemon.json",
     "package.json"
