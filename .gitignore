@@ -2,6 +2,7 @@ coverage/
 dist/
 node_modules/
 report/
+.nyc_output/
 *.log
 *.log.*
 tags

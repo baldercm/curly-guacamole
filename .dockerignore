@@ -5,6 +5,7 @@ report/
 scripts/
 .DS_Store/
 .git/
+.nyc_output/
 
 Dockerfile
 .dockerignore

@@ -9,6 +9,7 @@
       "folder_exclude_patterns":
       [
         ".idea",
+        ".nyc_output",
         "coverage",
         "dist",
         "node_modules",
