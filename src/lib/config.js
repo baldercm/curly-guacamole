@@ -13,7 +13,9 @@ function start() {
 
         next(null, config)
       } catch (err) {
-        next(err, config)
+        console.error('Startup error: ', err.stack)
+        await stop()
+        process.exit(1)
       }
     }
   }
