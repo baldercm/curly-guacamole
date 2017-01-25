@@ -6,5 +6,8 @@
       }
     }]
   ],
-  "plugins": ["transform-runtime"]
+  "plugins": [
+    "transform-promise-to-bluebird",
+    "transform-runtime"
+  ]
 }
