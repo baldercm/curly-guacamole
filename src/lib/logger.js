@@ -24,7 +24,7 @@ function start(opts) {
     ]
   })
 
-  winston.info('* Logger configuration: OK')
+  winston.info('Logger configuration: OK')
 }
 
 function accessLogger(format, args) {

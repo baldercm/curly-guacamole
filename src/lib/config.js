@@ -4,9 +4,6 @@ import * as mongo   from './mongo'
 function start() {
   return {
     onconfig: async(config, next) => {
-      console.log('Environment: %s', config.get('env:env'))
-      console.log('Initilizating components...')
-
       try {
         await logger.start(config.get('logger'))
         await mongo.start(config.get('mongo'))

@@ -7,6 +7,7 @@ const app = express()
 
 app.use(kraken(config.start()))
 app.on('start', () => {
+  logger.info('Environment: %s', app.kraken.get('env:env'))
   logger.info('Application ready to serve requests')
 })
 

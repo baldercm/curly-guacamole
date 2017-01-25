@@ -13,7 +13,7 @@ function start(mongoOptions) {
 
   mongoose.connection.once('open', () => {
     logger.info('Mongoose connected to ' + mongoUri)
-    logger.info('* Mongo configuration: OK')
+    logger.info('Mongo configuration: OK')
   })
   mongoose.connection.on('error', (err) => {
     logger.error('Mongoose connection error: ' + err)

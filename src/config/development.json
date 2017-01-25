@@ -32,8 +32,7 @@
     "uri": "mongodb://localhost:27017/curly-guacamole",
     "options": {
       "user": "",
-      "pass": "",
-      "quiet": false
+      "pass": ""
     },
     "debug": true
   },
