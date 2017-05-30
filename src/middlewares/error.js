@@ -8,14 +8,13 @@ export default function() {
   return (err, req, res, next) => {
     _.set(res, 'app.error', err)
 
-    if (!res.headersSent) {
-      if (err instanceof ApiError) {
-        res.status(err.status || 400).json({ error: err.message, code: err.code })
-      } else {
-        res.status(err.status || 500).json({ error: 'InternalServerError' })
-      }
+    if (res.headersSent) {
+      return next(err)
+    }
+    if (err instanceof ApiError) {
+      res.status(err.status || 400).json({ error: err.message, code: err.code })
     } else {
-      next(err)
+      res.status(err.status || 500).json({ error: 'InternalServerError' })
     }
   }
 }

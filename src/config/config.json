@@ -99,7 +99,7 @@
     },
 
     "appsec": {
-        "enabled": false
+      "enabled": false
     }
   }
 }
